@@ -3,7 +3,7 @@ import express, { Application, Request, Response, NextFunction} from 'express';
 const app: Application = express();
 const router = express.Router();
 
-// @route  POST api/v1/parse
+// @route  POST api/v2/parse
 // @desc   Parse data
 // @access Public 
 router.post('/',
