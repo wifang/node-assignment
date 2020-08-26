@@ -27,7 +27,7 @@ router.post('/',
        
         const resBody = {  
             statusCode: 200,
-            data:client
+            data : client
         };
 
         res.json(resBody);
@@ -37,4 +37,4 @@ router.post('/',
         res.status(500).send('Server error');
     }
 });
-module.exports = router;
+export default router;
