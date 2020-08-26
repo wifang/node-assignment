@@ -7,7 +7,7 @@ const router = express.Router();
 // @desc   Parse data
 // @access Public 
 router.post('/',
- async (req:Request, res:Response) => {
+  (req:Request, res:Response) => {
     const { data } = req.body; 
     try {
         const arr = data.replace('0000', '0000 ').split(' ');

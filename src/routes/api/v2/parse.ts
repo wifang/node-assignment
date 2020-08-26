@@ -7,7 +7,7 @@ const router = express.Router();
 // @desc   Parse data
 // @access Public 
 router.post('/',
- async (req:Request, res:Response) => {
+  (req:Request, res:Response) => {
     const { data } = req.body; 
     try {
         const ar = data.split(/0{3,4}/);
