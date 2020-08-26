@@ -1,4 +1,5 @@
 import express, { Application, Request, Response} from 'express';
+import { Client } from '../models/client';
 
 const app: Application = express();
 const router = express.Router();
@@ -9,20 +10,23 @@ const router = express.Router();
 router.post('/',
   (req:Request, res:Response) => {
     const { data } = req.body; 
+    let client: Client = {
+        firstName:'',
+        lastName:'',
+        clientId: ''
+    }
+
     try {
         const arr = data.replace('0000', '0000 ').split(' ');
-        const firstName = arr[0];
+        client.firstName = arr[0];
         const arr2 = arr[1].replace('000', '000 ').split(' ');
-        const lastName = arr2[0];
-        const clientId = arr2[1];
+        client.lastName = arr2[0];
+        client.clientId = arr2[1];
+        
 
         const resBody = {  
             statusCode: 200,
-            data : {
-                firstName,
-                lastName,
-                clientId
-            }
+            data : client,
         };
 
         res.json(resBody);
