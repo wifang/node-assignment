@@ -10,13 +10,13 @@ router.post('/',
  async (req:Request, res:Response) => {
     const { data } = req.body; 
     try {
-        let ar = data.split(/0{3,4}/);
-        
-        let firstName = ar[0]+'0000';
-        let lastName = ar[1]+'000';
-        let clientId = ar[2];
+        const arr = data.replace('0000', '0000 ').split(' ');
+        const firstName = arr[0];
+        const arr2 = arr[1].replace('000', '000 ').split(' ');
+        const lastName = arr2[0];
+        const clientId = arr2[1];
 
-        let resBody = {  
+        const resBody = {  
             statusCode: 200,
             data : {
                 firstName,
